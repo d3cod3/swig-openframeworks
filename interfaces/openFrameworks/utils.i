@@ -98,12 +98,23 @@ class std::fstream {};
 
 // ----- ofLog.h -----
 
+#ifdef SWIGLUA
 // function wrapper for ofLog class
 %inline %{
 	void log(ofLogLevel level, const std::string & message) {
 		ofLog(level, message);
 	}
 %}
+#endif
+
+#ifdef SWIGPYTHON
+// function wrapper for ofLog class
+%inline %{
+	void logPY(ofLogLevel level, const std::string & message) {
+		ofLog(level, message);
+	}
+%}
+#endif
 
 // DIFF: ofLog.h:
 // DIFF:   ignore stream-based log classes since target languages won't support it

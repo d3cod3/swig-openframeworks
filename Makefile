@@ -6,17 +6,19 @@
 # running `make` generates desktop os lua bindings and puts them in ../src,
 # running `make ios` generates ios lua bindings, etc
 #
-# override any of the following variables using make, i.e. to generate Python 
+# override any of the following variables using make, i.e. to generate Python
 # bindings with a different filename and dest location:
 #
 #     make LANG=python NAME=ofxPythonBindings DEST_DIR=../src/bindings
 #
 
 # swig command
-SWIG = swig
+# SWIG = swig
+SWIG = /usr/local/bin/swig
 
 # default output language, see swig -h for more
 LANG = lua
+#LANG = python
 
 # module name
 MODULE_NAME = of
@@ -34,7 +36,7 @@ DEPRECATED = false
 TARGET = desktop
 
 # generated bindings filename
-NAME = openFrameworks_wrap
+NAME = ofxLuaBindings
 
 # where to copy the generated bindings
 DEST_DIR = ../src/bindings
@@ -52,6 +54,7 @@ SWIG_FLAGS =
 # typically, long names are used in Python,
 # and function names remain unaltered (see pyOpenGL for instance)
 ifeq ($(LANG), python)
+	NAME = ofxPythonBindings
 	MODULE_NAME = openframeworks
 	RENAME = false
 	SWIG_FLAGS = -modern
@@ -61,7 +64,7 @@ endif
 ifeq ($(RENAME), true)
 	RENAME_CFLAGS = -DOF_SWIG_RENAME
 else
-	RENAME_CFLAGS = 
+	RENAME_CFLAGS =
 endif
 
 ifeq ($(DEPRECATED), true)
@@ -88,7 +91,7 @@ bindings:
 	@echo CFLAGS = $(CFLAGS)
 	@echo NAME = $(NAME)
 	@echo DEST_DIR = $(DEST_DIR)
-	
+
 	$(SWIG) -c++ -$(LANG) $(SWIG_FLAGS) -fcompact -fvirtual $(CFLAGS) -outdir $(DEST_LANG_DIR) openFrameworks.i
 	mv openFrameworks_wrap.cxx $(NAME).cpp
 

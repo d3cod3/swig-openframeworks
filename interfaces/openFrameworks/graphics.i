@@ -110,6 +110,10 @@
 // DIFF: ofPath.h: ignoring nested Command struct
 %ignore ofPath::Command;
 
+// ignore deprecated rotate
+%ignore ofPath::rotate(float degrees, const glm::vec3& axis);
+%ignore ofPath::rotate(float degrees, const glm::vec2& axis);
+
 %include "graphics/ofPath.h"
 
 // tell SWIG about template classes
@@ -120,6 +124,10 @@
 // ignored due to default variable overload
 %ignore ofPolyline_::arc(float, float, float, float, float, float, float);
 %ignore ofPolyline_::arcNegative(float, float, float, float, float, float, float);
+
+// ignore deprecated rotate
+%ignore ofPolyline_::rotate(float degrees, const glm::vec3& axis);
+%ignore ofPolyline_::rotate(float degrees, const glm::vec2& axis);
 
 // DIFF: ofPolyline.h: ignoring iterators
 %ignore ofPolyline_::begin;

@@ -99,13 +99,11 @@
 
 %ignore ofPolyline_::getAngleAtIndex;
 %ignore ofPolyline_::getAngleAtIndexInterpolated;
-%ignore ofPolyline_::rotate;
 
 // ----- ofPath.h -----
 
 %ignore ofPath::setArcResolution;
 %ignore ofPath::getArcResolution;
-%ignore ofPath::rotate;
 
 // ----- ofGraphics.h -----
 
