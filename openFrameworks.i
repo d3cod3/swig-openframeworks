@@ -72,23 +72,6 @@
 %rename(__add__) *::operator+;
 %rename(__sub__) *::operator-;
 
-// ----- pythoncode -----
-
-#if !defined(OF_SWIG_RENAME)
-
-%pythoncode %{
-
-# handle typedefs which swig doesn't wrap
-ofPoint = ofVec3f
-
-# renaming log -> ofLog
-ofLog = log
-del log
-
-%}
-
-#endif
-
 #endif
 
 // ----- Deprecated ------
@@ -152,6 +135,3 @@ del log
 #ifdef OF_SWIG_ATTRIBUTES
 	%include "interfaces/attributes.i"
 #endif
-
-
-// ----- Addons ------

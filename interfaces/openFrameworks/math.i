@@ -119,6 +119,19 @@ ofInterpolateHermite(float y1, float y2, float pct);
 	}
 };
 
+// ----- pythoncode -----
+
+#if !defined(OF_SWIG_RENAME)
+
+%pythoncode %{
+
+# handle typedefs which swig doesn't wrap
+ofPoint = ofVec3f
+
+%}
+
+#endif
+
 // ----- ofVec4f.h -----
 
 // DIFF: ofVec4f.h: ignoring glm::vec4 operator

@@ -65,6 +65,8 @@ typedef float GLfloat;
 	%rename ofUTF8Length UTF8Length;
 #endif
 
+%ignore ofTime;
+
 // include early for ofToString template declaration
 %include "utils/ofUtils.h"
 

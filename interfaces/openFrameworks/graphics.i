@@ -5,10 +5,6 @@
 
 // handled in main.i
 
-// ----- ofGraphicsConstants.h -----
-
-%include "graphics/ofGraphicsConstants.h"
-
 // ----- ofPixels.h -----
 
 // include pixels first as it's used by most other classes

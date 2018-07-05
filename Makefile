@@ -55,6 +55,7 @@ SWIG_FLAGS =
 # and function names remain unaltered (see pyOpenGL for instance)
 ifeq ($(LANG), python)
 	NAME = ofxPythonBindings
+	DEST_DIR = ../../ofxPython/src/bindings
 	MODULE_NAME = openframeworks
 	RENAME = false
 	SWIG_FLAGS = -modern
@@ -102,6 +103,7 @@ move:
 	mkdir -p $(DEST_DIR)/$(TARGET)
 	mv *.h $(DEST_DIR)
 	mv *.cpp $(DEST_DIR)/$(TARGET)
+	if [ $(TARGET) == "desktop" -a $(LANG) == "python" ]; then mv *.py ../../ofxPython/lib; fi
 
 # outputs swig language symbols
 symbols:
@@ -120,7 +122,7 @@ desktop-prepare:
 	$(eval TARGET := desktop)
 	$(eval CFLAGS := $(CFLAGS))
 
-desktop: desktop-prepare bindings move
+desktop: desktop-prepare bindings move symbols
 
 # iOS specific generation
 ios-prepare:

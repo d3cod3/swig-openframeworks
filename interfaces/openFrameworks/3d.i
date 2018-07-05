@@ -25,6 +25,10 @@
 
 %include "3d/ofEasyCam.h"
 
+// ----- ofGraphicsConstants.h -----
+
+%include "graphics/ofGraphicsConstants.h"
+
 // ----- ofMesh.h -----
 
 %include "3d/ofMesh.h"

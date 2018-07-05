@@ -114,6 +114,21 @@ class std::fstream {};
 		ofLog(level, message);
 	}
 %}
+
+// ----- pythoncode -----
+
+#if !defined(OF_SWIG_RENAME)
+
+%pythoncode %{
+
+# renaming log -> ofLog
+ofLog = logPY
+del logPY
+
+%}
+
+#endif
+
 #endif
 
 // DIFF: ofLog.h:
